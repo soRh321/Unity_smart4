@@ -11,6 +11,7 @@ public class CreateStar : MonoBehaviour
     [SerializeField] Button btn_Phase3;
     [SerializeField] Button btn_Phase4;
     [SerializeField] Button btn_Phase5;
+    [SerializeField] Button Btn_Phase6;
 
     [SerializeField] TextMeshProUGUI txt_Result;
     [SerializeField] TMP_InputField input_Count;
@@ -23,6 +24,7 @@ public class CreateStar : MonoBehaviour
         btn_Phase3.onClick.AddListener(Phase3);
         btn_Phase4.onClick.AddListener(Phase4);
         btn_Phase5.onClick.AddListener(Phase5);
+        Btn_Phase6.onClick.AddListener(Phase6);
     }
 
     // result 변수에 출력될 결과 텍스트를 입력해주세요.
@@ -62,7 +64,7 @@ public class CreateStar : MonoBehaviour
         {
             for (int j = 0; j < i + 1; j++) // 각 줄마다 별이 추가될 수 있도록 반복합니다.
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             for (int k = count; k > i; k--)
             {
@@ -99,7 +101,7 @@ public class CreateStar : MonoBehaviour
             }
             for (int k = count; k > i; k--)
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             result += "\n"; // 줄바꿈을 추가합니다. 입력된 수 만큼 반복될 때 줄바꿈을 진행합니다.
         }              
@@ -118,7 +120,7 @@ public class CreateStar : MonoBehaviour
         {
             for (int j = 0; j < count - i - 1; j++)
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             for ( int k = 0; k < i + 1; k++)
             {
@@ -131,7 +133,7 @@ public class CreateStar : MonoBehaviour
         {
             for (int j = 0; j < i + 1; j++) // 각 줄마다 별이 추가될 수 있도록 반복합니다.
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             for (int k = count-1; k > i; k--)
             {
@@ -154,7 +156,7 @@ public class CreateStar : MonoBehaviour
         {
             for(int j = 0; j < count - i; j++)
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             for(int k = 0; k < 2*i - 1; k++)
             {
@@ -167,11 +169,55 @@ public class CreateStar : MonoBehaviour
         {
             for(int n = 0; n < count - m; n++)
             {
-                result += "     "; // 공백찍기
+                result += "　"; // 공백찍기
             }
             for(int p = 0; p < 2*m - 1; p++)
             {
                 result += "★"; // 별을 추가합니다.
+            }
+            result += "\n"; // 줄바꿈을 추가합니다. 입력된 수 만큼 반복될 때 줄바꿈을 진행합니다.
+        }
+
+        // ----------------------------------------------------------------------------------------------------
+
+        txt_Result.text = result == "" ? "비어 있음" : result;
+    }
+    void Phase6()
+    {
+        string result = string.Empty;
+        int count = int.Parse(input_Count.text);
+
+        // ----------------------------------------------------------------------------------------------------정삼각형 + 역삼각형 j가 공백 k가 별이고
+        for (int i = count; i < count; i++)
+        {
+            for (int j = 0; j < count - i; j++)
+            {
+                result += "　"; // 공백찍기
+            }
+            for (int k = 0; k < 2 * i; k++)
+            {
+                result += "♥"; // 별을 추가합니다.
+            }
+            for (int j = 0; j < (count - i)*2; j++)
+            {
+                result += "　"; // 공백찍기
+            }
+            for (int k = 0; k < 2 * i; k++)
+            {
+                result += "♥"; // 별을 추가합니다.
+            }
+            result += "\n"; // 줄바꿈을 추가합니다. 입력된 수 만큼 반복될 때 줄바꿈을 진행합니다.
+        }
+
+        for (int m = count; m > 0; m--)
+        {
+            for (int n = 0; n < count - m; n++)
+            {
+                result += "　"; // 공백찍기
+            }
+            for (int p = 0; p < 2 * m - 1; p++)
+            {
+                result += "♥"; // 별을 추가합니다.
             }
             result += "\n"; // 줄바꿈을 추가합니다. 입력된 수 만큼 반복될 때 줄바꿈을 진행합니다.
         }
