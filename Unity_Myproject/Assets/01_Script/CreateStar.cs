@@ -11,7 +11,7 @@ public class CreateStar : MonoBehaviour
     [SerializeField] Button btn_Phase3;
     [SerializeField] Button btn_Phase4;
     [SerializeField] Button btn_Phase5;
-    [SerializeField] Button Btn_Phase6;
+    [SerializeField] Button btn_Phase6;
 
     [SerializeField] TextMeshProUGUI txt_Result;
     [SerializeField] TMP_InputField input_Count;
@@ -24,7 +24,7 @@ public class CreateStar : MonoBehaviour
         btn_Phase3.onClick.AddListener(Phase3);
         btn_Phase4.onClick.AddListener(Phase4);
         btn_Phase5.onClick.AddListener(Phase5);
-        Btn_Phase6.onClick.AddListener(Phase6);
+        btn_Phase6.onClick.AddListener(Phase6);
     }
 
     // result 변수에 출력될 결과 텍스트를 입력해주세요.
